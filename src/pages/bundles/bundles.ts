@@ -2,17 +2,14 @@ import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import { BundlesPage } from '../bundles/bundles';
-
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-bundles',
+  templateUrl: 'bundles.html'
 })
-export class HomePage {
-
+export class BundlesPage {
 
   constructor(public navCtrl: NavController) {
-  	
+
   }
 
 }
