@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BundlesPage } from '../pages/bundles/bundles';
 import { ProgressPage } from '../pages/progress/progress';
+import { ButtonPage } from '../pages/button/button';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProgressPage } from '../pages/progress/progress';
     HomePage,
     TabsPage,
     BundlesPage,
-    ProgressPage
+    ProgressPage,
+    ButtonPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -29,7 +31,8 @@ import { ProgressPage } from '../pages/progress/progress';
     HomePage,
     TabsPage,
     BundlesPage,
-    ProgressPage
+    ProgressPage,
+    ButtonPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
