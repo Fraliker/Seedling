@@ -13,6 +13,8 @@ import { ItemViewPage } from '../pages/item-view/item-view';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { DataStore } from '../providers/data-store';
+import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
+
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { DataStore } from '../providers/data-store';
     ProgressPage,
     ButtonPage,
     AddItemPage,
-    ItemViewPage
+    ItemViewPage,
+    ProgressBarComponent
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -41,8 +44,9 @@ import { DataStore } from '../providers/data-store';
     BundlesPage,
     ProgressPage,
     ButtonPage,
-    AddItemPage
-    ItemViewPage
+    AddItemPage,
+    ItemViewPage,
+    ProgressBarComponent
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage, DataStore]
 })

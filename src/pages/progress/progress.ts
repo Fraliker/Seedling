@@ -13,10 +13,13 @@ import { NavController } from 'ionic-angular';
 })
 export class ProgressPage {
 
+	public loadProgress;
+
   constructor(public navCtrl: NavController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgressPage');
+    this.loadProgress = 20;
   }
 
 }
