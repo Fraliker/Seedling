@@ -1,12 +1,15 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <ion-title>Dashboard</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>   <ion-list>   <!-- implement list here later -->
-<ion-item>     <ion-label floating>Username</ion-label>     <ion-input
-type="text"></ion-input>   </ion-item>
+<ion-content padding>   <ion-list>   
+
+<ion-item>     
+<ion-label floating>Username</ion-label>     
+<ion-input type="text"></ion-input>   
+</ion-item>
 
   <ion-item>
     <ion-label floating>Password</ion-label>
@@ -15,5 +18,28 @@ type="text"></ion-input>   </ion-item>
 
   <button ion-button full>Log In</button>
 
+  <button ion-item *ngFor="let item of basic" (click)="itemSelected(item)">  		
+  	{{item}}
+  </button>
+
 </ion-list>
+</ion-content>
+
+-->
+
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>
+        Dashboard
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="addItem()"><ion-icon name="add-circle"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of basic" (click)="viewItem(item)">{{item}}</ion-item>
+  </ion-list>
 </ion-content>
