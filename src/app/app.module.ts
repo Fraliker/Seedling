@@ -9,9 +9,11 @@ import { BundlesPage } from '../pages/bundles/bundles';
 import { ProgressPage } from '../pages/progress/progress';
 import { ButtonPage } from '../pages/button/button';
 import { AddItemPage } from '../pages/add-item/add-item';
+import { ItemViewPage } from '../pages/item-view/item-view';
 import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { DataStore } from '../providers/data-store';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { DataStore } from '../providers/data-store';
     BundlesPage,
     ProgressPage,
     ButtonPage,
-    AddItemPage
+    AddItemPage,
+    ItemViewPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -39,6 +42,7 @@ import { DataStore } from '../providers/data-store';
     ProgressPage,
     ButtonPage,
     AddItemPage
+    ItemViewPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage, DataStore]
 })
