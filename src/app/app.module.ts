@@ -8,6 +8,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { BundlesPage } from '../pages/bundles/bundles';
 import { ProgressPage } from '../pages/progress/progress';
 import { ButtonPage } from '../pages/button/button';
+import { AddItemPage } from '../pages/add-item/add-item';
+import { Http } from '@angular/http';
+import { Storage } from '@ionic/storage';
+import { DataStore } from '../providers/data-store';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { ButtonPage } from '../pages/button/button';
     TabsPage,
     BundlesPage,
     ProgressPage,
-    ButtonPage
+    ButtonPage,
+    AddItemPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -32,8 +37,9 @@ import { ButtonPage } from '../pages/button/button';
     TabsPage,
     BundlesPage,
     ProgressPage,
-    ButtonPage
+    ButtonPage,
+    AddItemPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage, DataStore]
 })
 export class AppModule {}

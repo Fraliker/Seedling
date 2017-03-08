@@ -4,6 +4,8 @@ import { NavController } from 'ionic-angular';
 
 import { BundlesPage } from '../bundles/bundles';
 
+import { DataStore } from '../../providers/data-store';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -11,44 +13,15 @@ import { BundlesPage } from '../bundles/bundles';
 export class HomePage {
 
 	public basic;
+	public student;
 
-/*
-  student = [{
-    id: 0,
-    text: "Communicate with at least one known family member/ friend in person (not over phone or through text)"
-  }, {
-    id: 1,
-    text: "Talk to someone new today"
-  },{
-    id: 2,
-    text: "Think about how today went - Write about some things that you accomplished today or that you are proud of"
-  },{
-    id: 3,
-    text: "Journal Write - Plan out the next week - What tests/ projects/ assignments do you have coming up? Set manageable goals for yourself to accomplish by this time next week."
-  },{
-    id: 4,
-    text: "Change up your studying tactics - Analyze what has been working for you and what has not. Try developing a new study method in order to maximize those beneftis"
-  },{
-    id: 5,
-    text: "Go over notes taken in class - "
-  },{
-    id: 6,
-    text: "Take at least an hour break while studying tonight"
-  },{
-    id: 7,
-    text: "Read ahead in a class you are struggling in"
-  },{
-    id: 8,
-    text: "Take a walk around the neighborhood"
-  },{
-    id: 9,
-    text: "Sleep an hour before you usually do"
-  },];
-  */
+  constructor(public navCtrl: NavController, public dataServe: DataStore) {
+  	this.dataServe.getData().then((list) => {
+  		if(list) {
+  			this.basic = JSON.parse(list);
+  		}
 
-
-  constructor(public navCtrl: NavController) {
-
+  	});
   }
 
   ionViewDidLoad() {
@@ -63,7 +36,21 @@ export class HomePage {
 	"Practice discernment while watching TV or reading the news",
 	"Take a long shower/bath",
 	"Go jogging for at least 30 minutes"
-  ];
+  	];
+
+  	this.student = [
+    "Communicate with at least one known family member/ friend in person (not over phone or through text)",
+    "Talk to someone new today",
+    "Think about how today went - Write about some things that you accomplished today or that you are proud of",
+    "Journal Write - Plan out the next week - What tests/ projects/ assignments do you have coming up? Set manageable goals for yourself to accomplish by this time next week.",
+    "Change up your studying tactics - Analyze what has been working for you and what has not. Try developing a new study method in order to maximize those beneftis",
+    "Review one set of notes taken in class",
+    "Read ahead in a class you are struggling in",
+    "Take a walk around the neighborhood",
+    "Sleep an hour before you usually do"
+    ];
+
+
   //console.log(basic);	
   }
 
@@ -73,7 +60,12 @@ export class HomePage {
   }
   
   viewItem() {
-  	
+
+  }
+
+  saveItem(item) {
+  	this.basic.push(item);
+  	this.dataServe.save(this.basic);
   }
 
 }
