@@ -19,7 +19,7 @@ export class ProgressPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgressPage');
-    this.loadProgress = 20;
+    this.loadProgress = 40;
   }
 
 }

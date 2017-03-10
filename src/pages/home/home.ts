@@ -6,6 +6,8 @@ import { BundlesPage } from '../bundles/bundles';
 
 import { DataStore } from '../../providers/data-store';
 
+import { ItemViewPage } from '../item-view/item-view';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -59,8 +61,10 @@ export class HomePage {
 
   }
   
-  viewItem() {
-  	
+  viewItem(item) {
+  	this.navCtrl.push(ItemViewPage, {
+  		item: item
+  	}); 	
 
   }
 

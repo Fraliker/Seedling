@@ -5,14 +5,20 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>ItemView</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>
+      Item View
+    </ion-title>
   </ion-navbar>
-
 </ion-header>
+ 
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      {{item}}
+    </ion-card-content>
+  </ion-card>
 
-
-<ion-content padding>
-
+  
+<button ion-button full>Delete</button>
 </ion-content>
