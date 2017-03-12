@@ -28,16 +28,16 @@ export class HomePage {
 
   ionViewDidLoad() {
   	this.basic = [
-	"Communicate with at least one known family member/ friend in person (not over phone or through text)", 
-	"Talk to someone new today",
-	"Journal Write - Write about some things that you accomplished today or that you are proud of",
-	"Journal Write - Plan out your day for tomorrow - What things do you want to get done.",
-	"Finish at least one part of a long time project (personal or from work)",
-	"Complete a relaxation hour - Take time away from work and do something you genuinely enjoy",
-	"Read a new book about a topic you are interested in",
-	"Practice discernment while watching TV or reading the news",
-	"Take a long shower/bath",
-	"Go jogging for at least 30 minutes"
+  	"Communicate with at least one known family member/ friend in person (not over phone or through text)", 
+  	"Talk to someone new today",
+  	"Journal Write - Write about some things that you accomplished today or that you are proud of",
+  	"Journal Write - Plan out your day for tomorrow - What things do you want to get done.",
+  	"Finish at least one part of a long time project (personal or from work)",
+  	"Complete a relaxation hour - Take time away from work and do something you genuinely enjoy",
+  	"Read a new book about a topic you are interested in",
+  	"Practice discernment while watching TV or reading the news",
+  	"Take a long shower/bath",
+	   "Go jogging for at least 30 minutes"
   	];
 
   	this.student = [
