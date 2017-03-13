@@ -40,11 +40,11 @@
  
 <ion-content>
   <ion-list>
-  <ion-item-sliding #thing>
-    <ion-item *ngFor="let item of basic" (click)="viewItem(item)">{{item}}</ion-item>
-    <ion-item-options side="left">
-      <button ion-button (click)="complete(thing)">Complete!</button>
-      <button ion-button color="danger" (click)="delete(thing)">Delete</button>
+  <ion-item-sliding *ngFor="let item of basic">
+    <ion-item>{{item}}</ion-item>
+    <ion-item-options side="right">
+      <button ion-button (click)="complete(item)">Complete!</button>
+      <button ion-button color="danger" (click)="delete(item)">Delete</button>
     </ion-item-options>
     </ion-item-sliding>
   </ion-list>
