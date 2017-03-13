@@ -19,9 +19,9 @@
     </ion-card-content>
   </ion-card>
 
-<button ion-button full> 
+<button ion-button full (click)="complete(item)"> 
 <ion-icon name="checkmark"></ion-icon>
   Complete! 
  </button>
-<button ion-button full color="danger">Delete</button>
+<button ion-button full color="danger" (click)="delete(item)">Delete</button>
 </ion-content>

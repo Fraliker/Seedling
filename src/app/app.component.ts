@@ -10,7 +10,7 @@ import { BundlesPage } from '../pages/bundles/bundles';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage : any = BundlesPage;
+  rootPage : any = TabsPage;
   //pages: Array< {title: string, component: any} >;
 
 

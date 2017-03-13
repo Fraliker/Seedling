@@ -16,9 +16,10 @@
 
 <ion-content padding>
 	<div class="card">
-	  <ion-avatar class="item">
-	    <img src="../assets/icon.png">
-	  </ion-avatar>
+	  <ion-card>
+	  	<img src="assets/icon.png">
+	  </ion-card>
 	 </div>
+	 <div>Yay! You're {{ loadProgress }}% to the next level!</div>
 	 <progress-bar [progress]="loadProgress"></progress-bar>
 </ion-content>

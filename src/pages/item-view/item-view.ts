@@ -22,4 +22,8 @@ export class ItemViewPage {
     this.item = this.navParams.get('item');
   }
 
+  delete(item) {
+    
+  }
+
 }
