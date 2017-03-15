@@ -13,11 +13,16 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataStore {
 
+  public isRegistered;
+  public defaultBundle;
+
   constructor(public http: Http, public storage: Storage) {
 
     let levels = [1, 3, 7, 11, 17, 21, 26];
 
     this.storage.set('levels', levels);
+
+    this.isRegistered = false;
 
     console.log('Hello DataStore Provider');
   }
@@ -38,7 +43,14 @@ export class DataStore {
     return this.storage.get('levels');
   }
 
+  register() {
+    this.isRegistered = true;
+  }
+
   setDefaultBundle(index) {
+    console.log("entered", index);
+    let newList;
+    this.defaultBundle = index;
     if(index == 0) {
       let basic = [{
         enabled: true,
@@ -71,7 +83,7 @@ export class DataStore {
         enabled: true,
         text: "Go jogging for at least 30 minutes"
       },];
-      let newList = JSON.stringify(basic);
+      newList = JSON.stringify(basic);
     }
     else if(index == 1) {
      let student = [{
@@ -105,13 +117,19 @@ export class DataStore {
         enabled: true,
         text: "Sleep an hour before you usually do"
       },];
-      let newList = JSON.stringify(student);
+      newList = JSON.stringify(student);
     }
     else if(index == 2) {
       let fitness = [];
-      let newList = JSON.stringify(fitness);
-
+      newList = JSON.stringify(fitness);
     }
+
+    this.storage.set('list', newList);
+
+  }
+
+  getRegistered() {
+    return this.isRegistered;
   }
 
 

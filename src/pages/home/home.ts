@@ -1,15 +1,9 @@
 import { Component } from '@angular/core';
-
 import { NavController } from 'ionic-angular';
-
 import { BundlesPage } from '../bundles/bundles';
-
 import { DataStore } from '../../providers/data-store';
-
 import { ItemViewPage } from '../item-view/item-view';
-
 import { ToastController } from 'ionic-angular';
-
 import * as moment from 'moment';
 
 @Component({
@@ -18,13 +12,13 @@ import * as moment from 'moment';
 })
 export class HomePage {
 
-	public basic;
-	public student;
+	public bundle;
 
   constructor(public navCtrl: NavController, public dataServe: DataStore, public toastCtrl: ToastController) {
   	this.dataServe.getData().then((list) => {
   		if(list) {
-  			this.basic = JSON.parse(list);
+  			this.bundle = JSON.parse(list);
+        console.log(this.bundle);
   		}
   	});
   }
@@ -47,13 +41,13 @@ export class HomePage {
   }
 
   saveItem(item) {
-  	this.basic.push(item);
-  	this.dataServe.save(this.basic);
+  	this.bundle.push(item);
+  	this.dataServe.save(this.bundle);
   }
 
   complete(item) {
-    this.basic.splice(this.basic.indexOf(item), 1);
-    this.dataServe.save(this.basic);
+    this.bundle.splice(this.bundle.indexOf(item), 1);
+    this.dataServe.save(this.bundle);
     let toast = this.toastCtrl.create({
         message: 'Congratulations for completing a task!',
         duration: 1500,
@@ -63,9 +57,9 @@ export class HomePage {
   }
 
   refresh() {
-    this.dataServe.getBasic().then((basic) => {
-      if(basic) {
-        this.basic = JSON.parse(basic);
+    this.dataServe.getData().then((list) => {
+      if(list) {
+        this.bundle = JSON.parse(list);
       }
     });
   }

@@ -40,7 +40,7 @@
  
 <ion-content>
   <ion-list>
-  <ion-item-sliding *ngFor="let item of basic">
+  <ion-item-sliding *ngFor="let item of bundle">
     <ion-item text-wrap>{{item.text}}</ion-item>
     <ion-item-options side="right">
       <button ion-button (click)="complete(item)">Complete!</button>
