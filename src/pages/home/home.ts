@@ -57,7 +57,7 @@ export class HomePage {
   }
 
   refresh() {
-    this.dataServe.getData().then((list) => {
+    this.dataServe.getBasic().then((list) => {
       if(list) {
         this.bundle = JSON.parse(list);
       }
