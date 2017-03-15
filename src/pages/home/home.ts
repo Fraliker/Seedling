@@ -54,6 +54,10 @@ export class HomePage {
         position: 'top'
       });
     toast.present();
+
+    this.dataServe.completeOne();
+    console.log(this.dataServe.getCompleted());
+
   }
 
   refresh() {

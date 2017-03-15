@@ -15,6 +15,7 @@ export class DataStore {
 
   public isRegistered;
   public defaultBundle;
+  public totalCompleted;
 
   constructor(public http: Http, public storage: Storage) {
 
@@ -23,6 +24,8 @@ export class DataStore {
     this.storage.set('levels', levels);
 
     this.isRegistered = false;
+
+    this.totalCompleted = 0;
 
     console.log('Hello DataStore Provider');
   }
@@ -130,6 +133,14 @@ export class DataStore {
 
   getRegistered() {
     return this.isRegistered;
+  }
+
+  completeOne() {
+    this.totalCompleted += 1;
+  }
+
+  getCompleted() {
+    return this.totalCompleted;
   }
 
 

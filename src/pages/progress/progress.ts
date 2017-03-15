@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { DataStore } from '../../providers/data-store';
 
 /*
   Generated class for the Progress page.
@@ -13,15 +14,21 @@ import { NavController } from 'ionic-angular';
 })
 export class ProgressPage {
 
-	public loadProgress;
-  public level;
+	public loadProgress : number;
+  public level : number;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController, public dataServe: DataStore) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProgressPage');
-    this.loadProgress = 40;
-    this.level = 2;
+    let completed : number = this.checkCompleted();
+    console.log(completed);
+    this.loadProgress = Math.ceil((completed % 3) / 3 * 100);
+    this.level = Math.ceil((completed / 3 + 0.01));
+  }
+
+  checkCompleted() {
+    return this.dataServe.getCompleted();
   }
 
 }
