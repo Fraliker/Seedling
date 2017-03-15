@@ -56,7 +56,8 @@ export class HomePage {
     this.dataServe.save(this.basic);
     let toast = this.toastCtrl.create({
         message: 'Congratulations for completing a task!',
-        duration: 2000
+        duration: 1500,
+        position: 'top'
       });
     toast.present();
   }
