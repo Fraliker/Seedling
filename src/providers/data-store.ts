@@ -51,7 +51,6 @@ export class DataStore {
   }
 
   setDefaultBundle(index) {
-    console.log("entered", index);
     let newList;
     this.defaultBundle = index;
     if(index == 0) {

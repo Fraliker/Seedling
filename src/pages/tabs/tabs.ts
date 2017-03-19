@@ -5,6 +5,9 @@ import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
 import { ProgressPage } from '../progress/progress';
 import { ButtonPage } from '../button/button';
+
+import { DataStore } from '../../providers/data-store';
+
 @Component({
   templateUrl: 'tabs.html'
 })
@@ -17,7 +20,12 @@ export class TabsPage {
   tab4Root: any = AboutPage;
   tab5Root: any = ButtonPage;
 
-  constructor() {
+  progressParams = {
+    loadProgress : Math.ceil((this.dataServe.getCompleted() % 3) / 3 * 100),
+    level : Math.ceil((this.dataServe.getCompleted() / 3 + 0.01))
+  };
+
+  constructor(public dataServe : DataStore) {
 
   }
 }

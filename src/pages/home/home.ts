@@ -18,7 +18,6 @@ export class HomePage {
   	this.dataServe.getData().then((list) => {
   		if(list) {
   			this.bundle = JSON.parse(list);
-        console.log(this.bundle);
   		}
   	});
   }
@@ -56,7 +55,6 @@ export class HomePage {
     toast.present();
 
     this.dataServe.completeOne();
-    console.log(this.dataServe.getCompleted());
 
   }
 
