@@ -13,10 +13,16 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class ButtonPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+	posts: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public https: Http) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ButtonPage');
+  }
+
+  tap() {
+
   }
 
  
