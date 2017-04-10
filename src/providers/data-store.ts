@@ -15,17 +15,16 @@ export class DataStore {
 
   public isRegistered;
   public defaultBundle;
-  public totalCompleted;
 
   constructor(public http: Http, public storage: Storage) {
 
     let levels = [1, 3, 7, 11, 17, 21, 26];
 
-    this.storage.set('levels', levels);
+    this.storage.set('levels', JSON.stringify(levels));
 
     this.isRegistered = false;
-
-    this.totalCompleted = 0;
+    
+    this.storage.set('totalComplete', JSON.stringify(0));
 
     console.log('Hello DataStore Provider');
   }
@@ -135,11 +134,23 @@ export class DataStore {
   }
 
   completeOne() {
-    this.totalCompleted += 1;
+    let completed;
+    this.getCompleted().then((totalComplete) => {
+      if(totalComplete) {
+        console.log('entered2');
+        completed = JSON.parse(totalComplete);
+        ++completed;
+        let newComplete = JSON.stringify(completed);
+        this.storage.set('totalComplete', newComplete);
+      }
+    }).catch(error => {
+        console.log(error);
+      })
   }
 
   getCompleted() {
-    return this.totalCompleted;
+    console.log('retrieved', this.storage.get('totalComplete'));
+    return this.storage.get('totalComplete');
   }
 
 

@@ -19,18 +19,14 @@ export class ProgressPage {
 
 	public loadProgress : number;
   public level : number;
+  public completed;
 
   constructor(public navCtrl: NavController, public dataServe: DataStore, public params: NavParams) {
-    
+    this.checkCompleted();
   }
 
   ionViewWillEnter() {
-    console.log("about to enter");
-    console.log(this.params.data);
-    let completed : number = this.checkCompleted();
-    console.log("completed", completed);
-    this.loadProgress = Math.floor((completed % 3) / 3 * 100) + 1;
-    this.level = Math.ceil((completed / 3 + 0.01));
+    this.checkCompleted();
 
   }
 
@@ -38,7 +34,21 @@ export class ProgressPage {
   }
 
   checkCompleted() {
-    return this.dataServe.getCompleted();
+    let complete;
+    this.dataServe.getCompleted().then((totalComplete) => {
+      if(totalComplete) {
+        console.log('entered2');
+        this.completed = JSON.parse(totalComplete);
+        this.loadProgress = Math.floor((this.completed % 3) / 3 * 100) + 1;
+    this.level = Math.ceil((this.completed / 3 + 0.01));
+        console.log('complete', this.completed);
+      }
+    }).catch(error => {
+        console.log(error);
+      })
+    console.log('completed', this.completed);
+    this.loadProgress = Math.floor((this.completed % 3) / 3 * 100) + 1;
+    this.level = Math.ceil((this.completed / 3 + 0.01));
   }
 
 }
