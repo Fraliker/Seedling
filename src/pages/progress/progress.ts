@@ -19,7 +19,7 @@ export class ProgressPage {
 
 	public loadProgress : number;
   public level : number;
-  public completed;
+  public completed : number;
 
   constructor(public navCtrl: NavController, public dataServe: DataStore, public params: NavParams) {
     this.checkCompleted();
@@ -49,6 +49,11 @@ export class ProgressPage {
     console.log('completed', this.completed);
     this.loadProgress = Math.floor((this.completed % 3) / 3 * 100) + 1;
     this.level = Math.ceil((this.completed / 3 + 0.01));
+  }
+
+  currentLevel() {
+    let picture = ["assets/images/buddy1.png", "assets/images/buddy2.png", "assets/images/buddy3.png", "assets/images/buddy4.png", "assets/images/buddy5.png"];
+    return picture[this.level - 1];
   }
 
 }
