@@ -62,6 +62,7 @@ export class HomePage {
     this.dataServe.getBasic().then((list) => {
       if(list) {
         this.bundle = JSON.parse(list);
+        this.dataServe.save(this.bundle);
       }
     });
   }
