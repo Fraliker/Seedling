@@ -18,7 +18,7 @@ import {Observable} from "rxjs";
 export class ProgressPage {
 
 	public loadProgress : number;
-  public level : number;
+  public level : number = 0;
   public completed : number;
 
   constructor(public navCtrl: NavController, public dataServe: DataStore, public params: NavParams) {
@@ -48,12 +48,17 @@ export class ProgressPage {
       })
     console.log('completed', this.completed);
     this.loadProgress = Math.floor((this.completed % 3) / 3 * 100) + 1;
+    this.level = 0;
+    while(Math.pow(this.level, 2) < this.completed) {
+      ++this.level;
+    }
     this.level = Math.ceil((this.completed / 3 + 0.01));
   }
 
   currentLevel() {
     let picture = ["assets/images/buddy1.png", "assets/images/buddy2.png", "assets/images/buddy3.png", "assets/images/buddy4.png", "assets/images/buddy5.png"];
-    return picture[this.level - 1];
+    if(this.level < 5) return picture[this.level - 1];
+    return picture[4];
   }
 
 }

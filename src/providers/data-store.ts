@@ -18,14 +18,8 @@ export class DataStore {
 
   constructor(public http: Http, public storage: Storage) {
 
-    let levels = [1, 3, 7, 11, 17, 21, 26];
-
-    this.storage.set('levels', JSON.stringify(levels));
-
     this.isRegistered = false;
     
-    this.storage.set('totalComplete', JSON.stringify(0));
-
     console.log('Hello DataStore Provider');
   }
 
@@ -48,6 +42,7 @@ export class DataStore {
   register() {
     this.isRegistered = true;
   }
+
 
   setDefaultBundle(index) {
     let newList;
@@ -126,6 +121,8 @@ export class DataStore {
     }
 
     this.storage.set('list', newList);
+    this.storage.set('totalComplete', JSON.stringify(0));
+
 
   }
 

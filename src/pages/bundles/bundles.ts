@@ -29,6 +29,7 @@ export class BundlesPage {
 
   enter(index) {
   	this.dataServe.setDefaultBundle(index);
+
   	this.navCtrl.setRoot(TabsPage);
 
   }
