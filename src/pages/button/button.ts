@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Popup } from '../button/popup';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
@@ -37,9 +38,14 @@ export class ButtonPage {
   }
 
   tap() {
+     let popupModal = this.modalCtrl.create(Popup);
+     popupModal.present();
 
   }
 
  
 
 }
+
+
+
