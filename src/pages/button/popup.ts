@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController, ViewController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { DataStore } from '../../providers/data-store';
 
@@ -12,9 +12,13 @@ export class Popup {
 
 	public random : number;
 
- constructor(public navCtrl: NavController) {
- 	this.random = Math.floor(Math.random() * 10);
+ constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
+ 	this.random = Math.floor(Math.random() * 6);
    console.log(this.random);
+ }
+
+ dismiss() {
+ 	this.viewCtrl.dismiss();
  }
 
 }
