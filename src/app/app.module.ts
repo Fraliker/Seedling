@@ -11,9 +11,11 @@ import { ButtonPage } from '../pages/button/button';
 import { Popup } from '../pages/button/popup';
 import { AddItemPage } from '../pages/add-item/add-item';
 import { ItemViewPage } from '../pages/item-view/item-view';
-import { Http } from '@angular/http';
-import { Storage } from '@ionic/storage';
 import { DataStore } from '../providers/data-store';
+import { IonicStorageModule } from '@ionic/storage';
+import { BrowserModule } from '@angular/platform-browser';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
 
 
@@ -34,7 +36,9 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     Popup
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    BrowserModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,6 +55,6 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     ProgressBarComponent,
     Popup
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage, DataStore]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DataStore, LocalNotifications]
 })
 export class AppModule {}

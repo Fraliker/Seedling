@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Popup } from '../button/popup';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 /*
   Generated class for the Button page.
@@ -26,14 +25,6 @@ export class ButtonPage {
   }
 
   ionViewWillEnter() {
-  	/*
-  	this.imageURL = null;
-  	this.http.get('https://www.reddit.com/r/aww/top/.json?limit=10&sort=hot').map(res => res.json()).subscribe(data => {
-  			this.posts = data.data.children;
-  			this.imageURL = this.posts[Math.floor(Math.random() * 10)].data.url.replace('&amp;', '&')
-  			console.log(this.posts, this.imageURL);
-  		})
-  		*/
 
   }
 

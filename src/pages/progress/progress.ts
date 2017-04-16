@@ -3,8 +3,6 @@ import { NavController } from 'ionic-angular';
 import { NavParams } from 'ionic-angular';
 import { DataStore } from '../../providers/data-store';
 
-import {Observable} from "rxjs";
-
 /*
   Generated class for the Progress page.
 
@@ -34,7 +32,6 @@ export class ProgressPage {
   }
 
   checkCompleted() {
-    let complete;
     this.dataServe.getCompleted().then((totalComplete) => {
       if(totalComplete) {
         console.log('entered2');

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { Storage } from '@ionic/storage';
 
 import 'rxjs/add/operator/map';
@@ -16,8 +15,7 @@ export class DataStore {
   public isRegistered;
   public defaultBundle;
 
-  constructor(public http: Http, public storage: Storage) {
-
+  constructor(public storage: Storage) {
     this.isRegistered = false;
     
     console.log('Hello DataStore Provider');
@@ -147,8 +145,11 @@ export class DataStore {
 
   getCompleted() {
     console.log('retrieved', this.storage.get('totalComplete'));
-    return this.storage.get('totalComplete');
+    //this.storage.ready().then(() => {
+         return this.storage.get('totalComplete');
+    //});
   }
+
 
 
   save(data) {

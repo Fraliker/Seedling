@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 import { NavController } from 'ionic-angular';
-import { BundlesPage } from '../bundles/bundles';
 import { DataStore } from '../../providers/data-store';
 import { ItemViewPage } from '../item-view/item-view';
 import { ToastController } from 'ionic-angular';
+
+
 import * as moment from 'moment';
 
 @Component({
@@ -14,7 +16,7 @@ export class HomePage {
 
 	public bundle;
 
-  constructor(public navCtrl: NavController, public dataServe: DataStore, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public dataServe: DataStore, public toastCtrl: ToastController, public localNotifs : LocalNotifications) {
   	this.dataServe.getData().then((list) => {
   		if(list) {
   			this.bundle = JSON.parse(list);
@@ -49,12 +51,17 @@ export class HomePage {
     this.dataServe.save(this.bundle);
     let toast = this.toastCtrl.create({
         message: 'Congratulations for completing a task!',
-        duration: 1500,
+        duration: 750,
         position: 'top'
       });
     toast.present();
 
     this.dataServe.completeOne();
+
+    this.localNotifs.schedule({
+      id: 1,
+      text: 'Single ILocalNotification',
+    });
 
   }
 
