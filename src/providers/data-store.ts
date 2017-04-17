@@ -30,11 +30,12 @@ export class DataStore {
   }
 
   getBasic() {
+    /*
     this.storage.ready().then(() => {
       // Storage is ready to use
       // Note: ready() is only available in 1.1.7 or greater!
       return this.storage.get('basic');
-    });
+    }); */
     return this.storage.get('basic');
     
   }
@@ -155,9 +156,10 @@ export class DataStore {
 
   getCompleted() {
     console.log('retrieved', this.storage.get('totalComplete'));
-    //this.storage.ready().then(() => {
-         return this.storage.get('totalComplete');
-    //});
+    this.storage.ready().then(() => {
+        return this.storage.get('totalComplete');
+      });
+    return this.storage.get('totalComplete');
   }
 
 

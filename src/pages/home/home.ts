@@ -22,11 +22,38 @@ export class HomePage {
   			this.bundle = JSON.parse(list);
   		}
   	});
-  }
 
-  ionViewDidLoad() {
-  
-
+    this.bundle = [{
+        enabled: true,
+        text: "Communicate with at least one known family member/ friend in person (not over phone or through text)"
+      }, {
+        enabled: true,
+        text: "Talk to someone new today"
+      },{
+        enabled: true,
+        text: "Journal Write - Write about some things that you accomplished today or that you are proud of"
+      },{
+        enabled: true,
+        text: "Journal Write - Plan out your day for tomorrow - What things do you want to get done."
+      },{
+        enabled: true,
+        text: "Finish at least one part of a long time project (personal or from work)"
+      },{
+        enabled: true,
+        text: "Complete a relaxation hour - Take time away from work and do something you genuinely enjoy"
+      },{
+        enabled: true,
+        text: "Read a new book about a topic you are interested in"
+      },{
+        enabled: true,
+        text: "Practice discernment while watching TV or reading the news"
+      },{
+        enabled: true,
+        text: "Take a long shower/bath"
+      },{
+        enabled: true,
+        text: "Go jogging for at least 30 minutes"
+      },];
   }
 
   getTime() {
@@ -60,7 +87,10 @@ export class HomePage {
 
     this.localNotifs.schedule({
       id: 1,
-      text: 'Single ILocalNotification',
+      text: 'check your seedling for a task today!',
+      at: new Date(new Date().getTime() + 60*60*12),
+       led: 'FF0000',
+       sound: null
     });
 
   }

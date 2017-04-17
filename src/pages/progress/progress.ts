@@ -24,9 +24,8 @@ export class ProgressPage {
   }
 
   ionViewWillEnter() {
-
-        this.checkCompleted();
-    
+    console.log("progress, ionViewWillEnter")
+    this.checkCompleted();    
 
   }
 
@@ -34,24 +33,26 @@ export class ProgressPage {
   }
 
   checkCompleted() {
+    
     this.dataServe.getCompleted().then((totalComplete) => {
+      console.log("checkCompleted", totalComplete);
       if(totalComplete) {
         console.log('entered2');
         this.completed = JSON.parse(totalComplete);
-        this.loadProgress = Math.floor((this.completed % 3) / 3 * 100) + 1;
-    this.level = Math.ceil((this.completed / 3 + 0.01));
+        this.loadProgress = Math.floor((this.completed % 10) / 10 * 100) + 1;
+    this.level = Math.ceil((this.completed / 10 + 0.01));
         console.log('complete', this.completed);
       }
     }).catch(error => {
         console.log(error);
       })
     console.log('completed', this.completed);
-    this.loadProgress = Math.floor((this.completed % 3) / 3 * 100) + 1;
+    this.loadProgress = Math.floor((this.completed % 10) / 10 * 100) + 1;
     this.level = 0;
     while(Math.pow(this.level, 2) < this.completed) {
       ++this.level;
     }
-    this.level = Math.ceil((this.completed / 3 + 0.01));
+    this.level = Math.ceil((this.completed / 10 + 0.01));
   }
 
   currentLevel() {
