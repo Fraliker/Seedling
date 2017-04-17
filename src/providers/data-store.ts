@@ -16,6 +16,10 @@ export class DataStore {
   public defaultBundle;
 
   constructor(public storage: Storage) {
+    storage.ready().then(() => {
+      // Storage is ready to use
+      // Note: ready() is only available in 1.1.7 or greater!
+    });
     this.isRegistered = false;
     
     console.log('Hello DataStore Provider');
@@ -26,7 +30,13 @@ export class DataStore {
   }
 
   getBasic() {
+    this.storage.ready().then(() => {
+      // Storage is ready to use
+      // Note: ready() is only available in 1.1.7 or greater!
+      return this.storage.get('basic');
+    });
     return this.storage.get('basic');
+    
   }
 
   getStudent() {

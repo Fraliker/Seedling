@@ -66,12 +66,17 @@ export class HomePage {
   }
 
   refresh() {
+    //this.bundle = JSON.parse(this.dataServe.getBasic());
+    //this.dataServe.save(this.bundle);
+    
     this.dataServe.getBasic().then((list) => {
+      console.log("returned");
       if(list) {
         this.bundle = JSON.parse(list);
         this.dataServe.save(this.bundle);
       }
     });
+    
   }
 
 }

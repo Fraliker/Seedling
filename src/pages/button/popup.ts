@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, ViewController } from 'ionic-angular';
-import { NavParams } from 'ionic-angular';
+import { NavController, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'modal-popup',

@@ -24,7 +24,9 @@ export class ProgressPage {
   }
 
   ionViewWillEnter() {
-    this.checkCompleted();
+
+        this.checkCompleted();
+    
 
   }
 
