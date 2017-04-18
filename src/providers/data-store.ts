@@ -12,23 +12,21 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class DataStore {
 
-  public isRegistered;
   public defaultBundle;
   public totalCompleted : number;
 
   constructor(public storage: Storage) {
     this.totalCompleted = 0;
-    storage.ready().then(() => {
-      // Storage is ready to use
-      // Note: ready() is only available in 1.1.7 or greater!
-    });
-    this.isRegistered = false;
     
     console.log('Hello DataStore Provider');
   }
 
   getData() {
   	return this.storage.get('list');
+  }
+
+  register() {
+    this.storage.set('registered', true);
   }
 
   getBasic() {
@@ -48,10 +46,6 @@ export class DataStore {
 
   getLevels() {
     return this.storage.get('levels');
-  }
-
-  register() {
-    this.isRegistered = true;
   }
 
 

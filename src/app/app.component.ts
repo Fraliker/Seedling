@@ -10,7 +10,7 @@ import { BundlesPage } from '../pages/bundles/bundles';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage : any = TabsPage ;
+  rootPage : any = BundlesPage ;
     
   //pages: Array< {title: string, component: any} >;
 
@@ -23,6 +23,8 @@ export class MyApp {
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
+
+    
 
     /*this.pages = [
       { title: '', component: page },
