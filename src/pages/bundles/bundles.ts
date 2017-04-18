@@ -26,9 +26,33 @@ export class BundlesPage {
 
   }
 
+  ionViewWillEnter() {
+    let registered;
+    this.dataServe.hasRegistered().then((state) => {
+        registered = state;
+        if(registered) this.navCtrl.setRoot(TabsPage);
+      });
+  }
+
+  /*
+
+  ionViewCanEnter(): boolean{
+   // here we can either return true or false
+   // depending on if we want to leave this view
+   if(isValid(randomValue)){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  */
+
 
   enter(index) {
   	this.dataServe.setDefaultBundle(index);
+
+    this.dataServe.register();
 
   	this.navCtrl.setRoot(TabsPage);
 
