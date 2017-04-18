@@ -55,6 +55,6 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     ProgressBarComponent,
     Popup
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, DataStore, LocalNotifications]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, IonicStorageModule, DataStore, LocalNotifications]
 })
 export class AppModule {}

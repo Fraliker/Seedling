@@ -24,17 +24,16 @@ export class ProgressPage {
   }
 
   ionViewWillEnter() {
-    console.log("progress, ionViewWillEnter")
     this.checkCompleted();    
-
+    
   }
 
   ionViewDidLoad() {
   }
 
   checkCompleted() {
-    
-    this.dataServe.getCompleted().then((totalComplete) => {
+
+    /* this.dataServe.getCompleted().then((totalComplete) => {
       console.log("checkCompleted", totalComplete);
       if(totalComplete) {
         console.log('entered2');
@@ -46,6 +45,8 @@ export class ProgressPage {
     }).catch(error => {
         console.log(error);
       })
+      */
+      this.completed = this.dataServe.getCompleted();
     console.log('completed', this.completed);
     this.loadProgress = Math.floor((this.completed % 10) / 10 * 100) + 1;
     this.level = 0;

@@ -14,8 +14,10 @@ export class DataStore {
 
   public isRegistered;
   public defaultBundle;
+  public totalCompleted : number;
 
   constructor(public storage: Storage) {
+    this.totalCompleted = 0;
     storage.ready().then(() => {
       // Storage is ready to use
       // Note: ready() is only available in 1.1.7 or greater!
@@ -130,7 +132,7 @@ export class DataStore {
     }
 
     this.storage.set('list', newList);
-    this.storage.set('totalComplete', JSON.stringify(0));
+    this.storage.set('complete', JSON.stringify(0));
 
 
   }
@@ -139,8 +141,22 @@ export class DataStore {
     return this.isRegistered;
   }
 
+  /*
+
   completeOne() {
     let completed;
+
+    completed = this.getCompleted();
+    ++completed;
+    console.log(completed);
+    let newComplete = JSON.stringify(completed);
+    this.storage.ready().then(() => {
+        this.storage.set('totalComplete', newComplete);
+      });
+    this.storage.get('totalComplete').then((total) => {
+      console.log("total", total);
+      })
+    
     this.getCompleted().then((totalComplete) => {
       if(totalComplete) {
         console.log('entered2');
@@ -152,14 +168,45 @@ export class DataStore {
     }).catch(error => {
         console.log(error);
       })
+      
   }
 
   getCompleted() {
-    console.log('retrieved', this.storage.get('totalComplete'));
+    
+    let complete : number;
+
+    complete = 0;
+    
     this.storage.ready().then(() => {
-        return this.storage.get('totalComplete');
+        this.storage.get('totalComplete').then((total) => {
+          
+          complete = JSON.parse(total);
+          });
       });
-    return this.storage.get('totalComplete');
+    console.log("ready", complete);
+    return complete;
+
+  }
+  */
+
+  completeOne() {
+    this.totalCompleted += 1;
+    this.saveComplete(this.totalCompleted);
+  }
+
+  getCompleted() {
+    this.storage.ready().then(() => {
+        this.storage.get('complete').then((total) => {
+            this.totalCompleted = JSON.parse(total);
+            return this.totalCompleted;
+          });
+      });
+    return this.totalCompleted;
+    
+  }
+
+  saveComplete(total) {
+    this.storage.set('complete', JSON.stringify(total));
   }
 
 
