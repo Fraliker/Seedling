@@ -57,14 +57,25 @@ export class HomePage {
 
     let notifyTime = moment(new Date()).add(12, 'h');
 
-
-    this.localNotifs.schedule({
+    if(this.localNotifs.isPresent(1)) {
+      this.localNotifs.update({
       id: 1,
       text: 'check your seedling for a task today! ',
       at: notifyTime,
        led: 'FFDDEE',
        sound: null
     });
+
+    } else {
+      this.localNotifs.schedule({
+      id: 1,
+      text: 'check your seedling for a task today! ',
+      at: notifyTime,
+       led: 'FFDDEE',
+       sound: null
+    });
+
+    }
 
   }
 
