@@ -20,13 +20,7 @@ export class BundlesPage {
     
 
   }
-
   ionViewDidLoad() {
-  	
-
-  }
-
-  ionViewWillEnter() {
     let registered;
     this.dataServe.hasRegistered().then((state) => {
         registered = state;

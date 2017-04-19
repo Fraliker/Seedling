@@ -5,6 +5,7 @@ import { DataStore } from '../../providers/data-store';
 import { ItemViewPage } from '../item-view/item-view';
 import { ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { BundlesPage } from '../bundles/bundles';
 
 
 
@@ -26,6 +27,13 @@ export class HomePage {
   	});
   }
 
+  ionViewDidLoad() {
+    let registered;
+    this.dataServe.hasRegistered().then((state) => {
+        registered = state;
+        if(!registered) this.navCtrl.setRoot(BundlesPage);
+      });
+  }
   getTime() {
     let now = moment().format('LLLL');
     console.log(now);

@@ -3,14 +3,13 @@ import { Platform, MenuController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { BundlesPage } from '../pages/bundles/bundles';
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage : any = BundlesPage ;
+  rootPage : any = TabsPage ;
     
   //pages: Array< {title: string, component: any} >;
 
