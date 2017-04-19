@@ -55,10 +55,13 @@ export class HomePage {
 
     this.dataServe.completeOne();
 
+    let notifyTime = moment(new Date()).add(12, 'h');
+
+
     this.localNotifs.schedule({
       id: 1,
       text: 'check your seedling for a task today! ',
-      at: new Date(new Date().getTime() + 60*60*12),
+      at: notifyTime,
        led: 'FFDDEE',
        sound: null
     });
@@ -69,7 +72,7 @@ export class HomePage {
     //this.bundle = JSON.parse(this.dataServe.getBasic());
     //this.dataServe.save(this.bundle);
     
-    this.dataServe.getBasic().then((list) => {
+    this.dataServe.getData().then((list) => {
       console.log("returned");
       if(list) {
         this.bundle = JSON.parse(list);

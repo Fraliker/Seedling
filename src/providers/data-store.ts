@@ -22,7 +22,7 @@ export class DataStore {
   }
 
   getData() {
-  	return this.storage.get('list');
+  	return this.storage.get('default');
   }
 
   register() {
@@ -128,7 +128,7 @@ export class DataStore {
       },];
       newList = JSON.stringify(fitness);
     }
-
+    this.storage.set('default', newList);
     this.storage.set('list', newList);
     this.storage.set('complete', JSON.stringify(0));
 
