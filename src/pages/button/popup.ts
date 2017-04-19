@@ -15,7 +15,15 @@ export class Popup {
 
 	//example: list of www/audio/ folder in cordova/ionic app.
 	//this.listDir(cordova.file.applicationDirectory + "assets/audio/");
- 	this.memes = ["assets/button-images/butter.jpg", "assets/button-images/photogenic.jpg", "assets/button-images/sofa.jpg", "assets/button-images/travis.jpg"];
+ 	this.memes = ["assets/button-images/butter.jpg", 
+ 					"assets/button-images/c.jpg",
+ 					"assets/button-images/d.jpg",
+ 					"assets/button-images/e.jpg",
+ 					"assets/button-images/f.jpg",
+ 					"assets/button-images/h.png",
+ 					"assets/button-images/v.jpg",
+ 					"assets/button-images/x.jpg",
+ 					"assets/button-images/photogenic.jpg", "assets/button-images/sofa.jpg", "assets/button-images/travis.jpg"];
 
 
  	this.random = Math.floor(Math.random() * this.memes.length);
