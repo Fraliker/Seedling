@@ -6,21 +6,30 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding="3px">
 	<form [formGroup]="todo" (ngSubmit)="logForm()">
       <ion-item>
         <ion-label>Your email address:</ion-label>
         <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
       <ion-item>
+        <ion-label>Subject</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item>
         <ion-label floating>Enter your question or concern:</ion-label>
         <ion-textarea formControlName="description"></ion-textarea>
       </ion-item>
-      <button ion-button round type="submit" [disabled]="!todo.valid">Submit</button>
+      <button ion-button color="secondary" round type="submit" [disabled]="!todo.valid">Submit</button>
+
+
     </form>
 
-    <div>
-    <br /> Currently unavailable, please update soon
-    </div>
+    <a type="button" color="primary" ion-button icon-left href="tel:18002738255">
+      <!-- <a href="tel:18002738255"> -->
+        <ion-icon name="call"></ion-icon>
+        Call a Support Hotline
+        <!-- </a> -->
+      </a>
   
 </ion-content>

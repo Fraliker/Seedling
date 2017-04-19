@@ -22,4 +22,21 @@ export class ContactPage {
     console.log(this.todo.value)
   }
 
+  sendEmail() {
+    /*
+    cordova.plugins.email.isAvailable(
+      function (isAvailable) {
+        if(isAvailable) {
+          cordova.plugins.email.open({
+            to:      'max@mustermann.de',
+            subject: 'Greetings',
+            body:    'How are you? Nice greetings from Leipzig'
+        
+        });
+        }
+      }
+  );
+  */
+  }
+
 }
