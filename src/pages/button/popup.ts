@@ -12,6 +12,9 @@ export class Popup {
 	public memes;
 
  constructor(public navCtrl: NavController, public viewCtrl: ViewController) {
+
+	//example: list of www/audio/ folder in cordova/ionic app.
+	//this.listDir(cordova.file.applicationDirectory + "assets/audio/");
  	this.memes = ["assets/button-images/butter.jpg", "assets/button-images/photogenic.jpg", "assets/button-images/sofa.jpg", "assets/button-images/travis.jpg"];
 
 
@@ -25,6 +28,27 @@ export class Popup {
  dismiss() {
  	this.viewCtrl.dismiss();
  }
+
+ /*
+	listDir(path){
+	  window.resolveLocalFileSystemURL(path,
+	    function (fileSystem) {
+	      var reader = fileSystem.createReader();
+	      reader.readEntries(
+	        function (entries) {
+	          console.log(entries);
+	        },
+	        function (err) {
+	          console.log(err);
+	        }
+	      );
+	    }, function (err) {
+	      console.log(err);
+	    }
+	  );
+	}
+
+	*/
 
  returnMeme() {
  	console.log(this.memes[this.random]);
